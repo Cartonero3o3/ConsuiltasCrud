@@ -11,9 +11,17 @@ const {
 	buscadorDeTodasLasPalabras,
 } = require('../services/index');
 
+
+//Esto es para abrirlo desde postman
 router.get('/', async (req, res) => {
     const result = await buscadorDeTodasLasPalabras(req, res);
     res.json(result);
+});
+
+//Esto es para abrirlo desde html
+router.get('/', async (req, res) => {
+	const result = await buscadorDeTodasLasPalabras(req, res);
+	res.render('index', { title: "Diccionario", data: result });
 });
 
 
